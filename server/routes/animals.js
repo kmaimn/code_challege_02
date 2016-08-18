@@ -2,7 +2,7 @@ var express = require('express');
 
 var router = express.Router();
 //bringing in the random router;
-var randomNumber = require('./random');
+var random = require('./random');
 
 var pg = require('pg');
 
@@ -27,7 +27,7 @@ router.get('/', function(req, res){
 
 router.post('/', function(req, res){
   var animal = req.body;
-  var total = randomNumber;
+  var total = random(1,100);
   console.log(total);
 
   pg.connect(connectionString, function(err, client, done){
